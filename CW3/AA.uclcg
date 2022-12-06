@@ -27,7 +27,7 @@ function setup()
 #define SOLUTION_BOUNCE
 #define SOLUTION_THROUGHPUT
 #define SOLUTION_HALTON
-#define SOLUTION_AA
+//#define SOLUTION_AA
 //#define SOLUTION_IS
 //#define SOLUTION_MB
 
@@ -35,6 +35,10 @@ precision highp float;
 
 #define M_PI 3.1415
 
+
+//In our case, gamma is used to make the image look better for our eyes, since the monitor will do the gamma correction itself which will lower the intensity
+//and if we do not do the gamma correction in the code, the image will be dimmer and lose some details. With gamma correction in the code, we turn the space
+//from the non-linear to the linear space, which all operations we are going to implement is supposed to be based on.
 struct Material {
 	#ifdef SOLUTION_LIGHT
 	int light_source;
