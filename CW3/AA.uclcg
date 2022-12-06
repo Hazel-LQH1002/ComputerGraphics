@@ -462,8 +462,9 @@ vec3 samplePath(const Scene scene, const Ray initialRay) {
 		Ray outgoingRay;
 		DirectionSample directionSample;
 		#ifdef SOLUTION_BOUNCE
+		directionSample = sampleDirection(hitInfo.normal,PATH_SAMPLE_DIMENSION+2*i);
 		outgoingRay.origin = hitInfo.position;
-		outgoingRay.direction = getRandomDirection(PATH_SAMPLE_DIMENSION+2*i);
+		outgoingRay.direction = directionSample.direction;
 		#else
 		// Put your code to compute the next ray in the #ifdef above
 		#endif
